@@ -26,7 +26,6 @@
             scroll-behavior: smooth;
         }
 
-        /* --- Navegação --- */
         nav {
             background: rgba(15, 15, 15, 0.95);
             padding: 1.2rem;
@@ -53,7 +52,6 @@
 
         nav ul li a:hover { color: var(--primary-color); }
 
-        /* --- Seção Hero --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -84,7 +82,6 @@
             min-height: 1.6em;
         }
 
-        /* --- Seções Gerais --- */
         section { padding: 100px 20px; max-width: 1000px; margin: auto; }
 
         h2 {
@@ -101,7 +98,6 @@
             border-left: 5px solid var(--primary-color);
         }
 
-        /* --- Skills Grid --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -119,7 +115,6 @@
         .skill-item:hover { transform: translateY(-5px); background: #222; }
         .skill-item i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; }
 
-        /* --- Projetos --- */
         .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -155,4 +150,136 @@
             text-align: center;
             padding: 50px;
             background: #0a0a0a;
-            border-top: 1px solid
+            border-top: 1px solid #333;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { color: var(--primary-color); }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { gap: 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projetos</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <img src="wanderley.jpg" alt="Wanderley Ariel" class="profile-img">
+        <h1>Wanderley Ariel</h1>
+        <div id="typing-text"></div>
+        <p style="margin-top: 10px; color: #888;">Systems Analysis and Development Student</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>
+                Hello! I am a **Junior Software Developer** currently studying Systems Analysis and Development. 
+                My focus is on creating clean, efficient, and user-friendly applications. 
+                I love learning new technologies and solving complex logic problems through code.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fab fa-js"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-java"></i>
+                <p>Java</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <p>SQL Databases</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-git-alt"></i>
+                <p>Git & GitHub</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Project Name Here</h3>
+                    <p>A professional web application designed to handle [problem] with high efficiency.</p>
+                    <p class="tech-stack">HTML • CSS • JavaScript • Node.js</p>
+                    <a href="#" class="btn-git"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Inventory System</h3>
+                    <p>Complete backend system for stock management and data reporting.</p>
+                    <p class="tech-stack">Java • Spring Boot • MySQL</p>
+                    <a href="#" class="btn-git"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Get In Touch</h2>
+        <p>Email: wanderley.ariel@example.com</p>
+        <div class="social-links" style="margin-top: 20px;">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.8rem; color: #555;">© 2026 Wanderley Ariel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const textElement = document.getElementById('typing-text');
+        const phrases = ["Junior Software Developer", "Systems Analyst Student", "Tech Enthusiast"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            let typeSpeed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; 
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+</body>
+</html>
