@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,92 +8,151 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --bg-dark: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-light: #e0e0e0;
+        }
 
-    <nav>
-        <ul>
-            <li><a href="#home">inicio</a></li>
-            <li><a href="#about">sobre</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <header id="home" class="hero">
-        <img src="./wanderley.jpg" alt="Wanderley Ariel" class="profile-img">
-        <h1>Wanderley Ariel</h1>
-        <div id="typing-text"></div>
-        <p style="margin-top: 10px; color: #888;">Systems Analysis and Development Student</p>
-    </header>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            scroll-behavior: smooth;
+        }
 
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <p>
-                Hello! I am a **Junior Software Developer** currently studying Systems Analysis and Development. 
-                My focus is on creating clean, efficient, and user-friendly applications. 
-                I love learning new technologies and solving complex logic problems through code.
-            </p>
-        </div>
-    </section>
+        /* --- Navegação --- */
+        nav {
+            background: rgba(15, 15, 15, 0.95);
+            padding: 1.2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
 
-    <section id="skills">
-        <h2>My Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <i class="fab fa-js"></i>
-                <p>JavaScript</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-java"></i>
-                <p>Java</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-database"></i>
-                <p>SQL Databases</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-git-alt"></i>
-                <p>Git & GitHub</p>
-            </div>
-        </div>
-    </section>
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
 
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <div class="project-info">
-                    <h3>Project Name Here</h3>
-                    <p>A professional web application designed to handle [problem] with high efficiency.</p>
-                    <p class="tech-stack">HTML • CSS • JavaScript • Node.js</p>
-                    <a href="#" class="btn-git"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-info">
-                    <h3>Inventory System</h3>
-                    <p>Complete backend system for stock management and data reporting.</p>
-                    <p class="tech-stack">Java • Spring Boot • MySQL</p>
-                    <a href="#" class="btn-git"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-    <footer>
-        <h2>Get In Touch</h2>
-        <p>Email: wanderley.ariel@example.com</p>
-        <div class="social-links" style="margin-top: 20px;">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.8rem; color: #555;">© 2026 Wanderley Ariel. All rights reserved.</p>
-    </footer>
+        nav ul li a:hover { color: var(--primary-color); }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        /* --- Seção Hero --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 100%);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+            object-fit: cover;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+        #typing-text {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.5rem;
+            min-height: 1.6em;
+        }
+
+        /* --- Seções Gerais --- */
+        section { padding: 100px 20px; max-width: 1000px; margin: auto; }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .about-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* --- Skills Grid --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .skill-item:hover { transform: translateY(-5px); background: #222; }
+        .skill-item i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; }
+
+        /* --- Projetos --- */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid #333;
+        }
+
+        .project-card:hover { transform: scale(1.03); border-color: var(--primary-color); }
+
+        .project-info { padding: 20px; }
+        .project-info h3 { margin-bottom: 10px; color: var(--primary-color); }
+        .tech-stack { font-size: 0.8rem; color: #888; margin-bottom: 15px; }
+
+        .btn-git {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--primary-color);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: #0a0a0a;
+            border-top: 1px solid
